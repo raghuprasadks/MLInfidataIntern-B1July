@@ -98,7 +98,10 @@ class Account():
     def checkBalance(self,acctno):
         return self.balance
         
+    def info(self):
+        return "Name - ",self.name ," Balance - ",self.balance
 
+acctList = []
 myact = Account("raghu","Bengaluru",9845547471,'prasadraghuks@gmail.com',2020202020)
 print('account no ',myact.acctno)
 
@@ -112,12 +115,56 @@ print("Balance after first withdraw ",balance)
 balance = myact.checkBalance(acctno)
 print("Check Balance:: ",balance)
 
-
-
-
-
+acctList.append(myact)
 
 sureshact = Account("Suresh","Bengaluru",9845547472,'sureshraghuks@gmail.com','Property agreement',3999999999)
-print('account no ',sureshact.acctno)    
+print('account no ',sureshact.acctno)  
+acctno = sureshact.acctno
+balance = sureshact.deposit(acctno,50000)
+acctList.append(sureshact)
 
+total = 0
+for act in acctList:
+    print('Info ' ,act.info())
+    total = total + act.balance
+    
+print('total ',total)
+  
+
+class product():
+    
+    def __init__(self,code,name,manufacturer,price):
+        self.code = code
+        self.name = name
+        self.manufacturer = manufacturer
+        self.price = price
+        
+    def info(self):
+        print("Code ",self.code," Name ", self.name," manufacturer ",self.manufacturer," price ",self.price)
+        
+total = 0
+productList = []
+
+prod1 = product(123,"Xiaomi Phone","Xiaomi",16000)
+maximum = prod1.price
+minimum = prod1.price
+productList.append(prod1)
+
+prod2 = product(456,"HP Laptop","HP",75000)
+productList.append(prod2)
+
+prod3 = product(789,"Sony TV","Sony",60000)
+productList.append(prod3)
+
+for pro in productList:
+    pro.info()
+    total = total + pro.price
+    if(pro.price >= maximum):
+        maximum = pro.price
+    if(pro.price <= minimum):
+        minimum = pro.price
+
+print("total ",total)
+print("maximum price ",maximum)
+print("minimum price ",minimum)
 
