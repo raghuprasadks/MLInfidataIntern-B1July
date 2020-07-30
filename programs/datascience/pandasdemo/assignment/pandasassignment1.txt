@@ -1,0 +1,12 @@
+1. Display data present in result.xlsx
+using pandas
+2. Add a new column called Total using
+pandas and store total of sub1,sub2 and sub3
+3. Add a new column called Average. Store
+average value of sub1,sub2,sub3
+4. In case of null values. Replace the null value
+with average of rest of the subjects
+5. Find the student (display regno,name,college,branch,total )who has scored highest marks
+6. Find the student who has scored highest
+marks in each subject
+7. Delete duplicate records by keeping one copy

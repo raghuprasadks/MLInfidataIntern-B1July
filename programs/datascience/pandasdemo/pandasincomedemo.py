@@ -3,12 +3,15 @@
 Created on Mon Jul 27 12:45:52 2020
 
 @author: lenovo
+https://www.listendata.com/2017/12/python-pandas-tutorial.html
 """
 
 
 import pandas as pd
 income = pd.read_csv("income.csv")
 print('income ',income)
+
+print ('type ',type(income))
 
 #Get columns
 
@@ -41,15 +44,13 @@ print('rows ',rows)
 columns = income.shape[1]
 print('columns  ',columns)
 
-
+income.head()
 income.head(10)
 
 income.tail()
 
 income[0:5]
 income.iloc[0:4]
-
-
 
 s = pd.Series([1,2,3,1,2], dtype="category")
 print('categories ',s)
@@ -98,11 +99,122 @@ data
 
 data.columns = ['Names','Zodiac Signs']
 
+data2 = data.rename(columns = {"Names":"Cust_Name"})
+print(data2)
 #Renaming only some of the variables.
 data.rename(columns = {"Names":"Cust_Name"},inplace = True) 
 
+income.set_index("Index",inplace = True)
+income.head()
+
+income.drop('Index',axis = 1)
+
+income1  = income.drop('State',axis=1)
+
+income2 = income1.drop([4,5,6,7],axis=0)
+print(income2)
+
+income.sort_values("State",ascending = True)
+
+income["difference"] = income.Y2008-income.Y2009
+print(income["difference"])
+
+data = income.assign(ratio = (income.Y2008 / income.Y2009))
+data.head()
+
+stat = income.describe()
+
+income.mean()
+
+income.agg(["mean","median"])
+
+income.loc[:,["Y2002","Y2008"]].max()
+
+income.groupby("Index")["Y2002","Y2003"].agg(["min","max","mean"])
+
+income[income.Index == "A"]
+
+income[income.State == "Alabama"]
+
+income.Index == "A"
+
+income.loc[income.Index == "A","State"]
+
+income.loc[(income.Index == "A") & (income.Y2002 > 1500000),:]
+
+income.query('Y2002>1700000 & Y2003 > 1500000')
 
 
+crops.isnull() 
+crops.notnull()  #opposite of previous command.
+crops.isnull().sum()  #No. of missing values.
+
+income[income.Index == "A"]
+
+income.loc[income.Index == "A",:]
+
+income.loc[income.Index == "A","State"]
+
+income.loc[(income.Index == "A") & (income.Y2002 > 1500000),:]
+
+income.loc[(income.Index == "A") | (income.Index == "W"),:]
+
+#Alternatively.
+income.loc[income.Index.isin(["A","W"]),:]
+
+income.query('Y2002>1700000 & Y2003 > 1500000')
+
+
+import numpy as np
+mydata = {'Crop': ['Rice', 'Wheat', 'Barley', 'Maize'],
+        'Yield': [1010, 1025.2, 1404.2, 1251.7],
+        'cost' : [102, np.nan, 20, 68]}
+crops = pd.DataFrame(mydata)
+crops
+
+crops.isnull()
+
+crops.dropna(subset = ['Yield',"cost"],how = 'any').shape
+
+crops['cost'].fillna(value = "UNKNOWN",inplace = True)
+crops
+
+
+data = pd.DataFrame({"Items" : ["TV","Washing Machine","Mobile","TV","TV","Washing Machine"], "Price" : [10000,50000,20000,10000,10000,40000]})
+data
+
+
+data.loc[data.duplicated(),:]
+
+data.loc[data.duplicated(keep = "first"),:]
+
+data.drop_duplicates(keep = "first")
+
+
+'''
+iris dataset
+'''
+
+iris = pd.read_csv("iris.csv")
+
+print(iris)
+
+iris.head()
+
+iris["setosa"] = iris.Species.map({"setosa" : 1,"versicolor":0, "virginica" : 0})
+iris.head()
+
+dummiers = pd.get_dummies(iris.Species,prefix = "Species")
+
+species_dummies = pd.get_dummies(iris.Species,prefix = "Species").iloc[:,0:]
+
+
+iris = pd.concat([iris,species_dummies],axis = 1)
+iris.head()
+
+income.mean()
+
+income.agg(["mean","median"])
 
 
 
