@@ -1,0 +1,4 @@
+https://towardsdatascience.com/how-to-track-covid-19-cases-in-the-united-states-in-python-9b297ff9f6f5
+https://opensource.com/article/20/4/python-data-covid-19
+https://www.tutorialspoint.com/matplotlib/matplotlib_figure_class.htm
+https://in.springboard.com/blog/data-modelling-covid/
