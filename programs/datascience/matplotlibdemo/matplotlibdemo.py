@@ -174,7 +174,7 @@ plt.show()
 q=range(4)
 s=[23.5,25,26,28.5]
 plt.xticks([0,0.5,1,1.5,2,2.5,3])
-plt.bar(q,s,width=0.25)
+plt.bar(q,s)
 plt.show()
 
 '''

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Java Script Demo</title>
+</head>
+<body>
+
+	<h1>Registration Form</h1>
+	<input type="text" id="name" name="name" placeholder="Enter your name"><br>
+	<input type="text" id="email" name="email" placeholder="Enter Email"><br>
+	<input type="text" id="mobile" name="mobile" placeholder="Enter Mobile"><br>
+
+	<input type="password" id="password" name="password" placeholder="Enter Password"><br>
+	<button onclick="saveData()">Submit</button>
+
+	<script type="text/javascript">
+		
+		function saveData(){
+
+		var name = document.getElementById("name").value;
+		var email = document.getElementById("email").value;
+		var mobile = document.getElementById("mobile").value;
+		var password = document.getElementById("password").value;
+		var message = "Name : "+name +" Email : "+email;
+		alert(message);
+		}
+		
+
+	</script>
+
+</body>
+</html>

@@ -216,6 +216,9 @@ income.mean()
 
 income.agg(["mean","median"])
 
+import pandas as pd
+pd.Series([1,2,3,1,2,'Apple','Apple'], dtype="category")
+
 
 
 

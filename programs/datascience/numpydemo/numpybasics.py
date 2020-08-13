@@ -49,6 +49,8 @@ Create a NumPy Array from a list
 lst = [1,2,3,4,5]
 nparray1 = np.array(lst)
 print('nparray from list',nparray1)
+print('Datatype',type(nparray1))
+#<class 'numpy.ndarray'>
 
 nparray2 = np.array([2,4,5,8])
 print('nparray from list another way',nparray2)
@@ -126,7 +128,6 @@ first iteration in TensorFlow and other
 statistic tasks.
 
 '''
-
 ones = np.ones([4,3])
 print('ones ',ones)
 print('shape ',ones.shape)
